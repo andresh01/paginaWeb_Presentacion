@@ -1,3 +1,4 @@
+/* Se crean Variables */
 :root {
     --blanco : #ffffff;
     --oscuro : #212121;
@@ -6,18 +7,36 @@
     --gris : #757575;
 }
 
+
 html {
-    font-size: 62.5%;
+    font-size: 62.5%; /*con este valor se garantiza que 1rem equivale a 10px en conjunto con el valor escrito en el font size-body*/
+    box-sizing: border-box; /* garantiza que el tamaño del elemento no se ve afectado si le hacemos despues un padding */
+}
+/* garantiza que el tamaño del elemento no se ve afectado si le hacemos despues un padding */
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
+/* Los rem se adaptan mejor a los navegadores */
 body {
-    font-size: 16px;
+    font-size: 16px; /*con este valor se garantiza que 1rem equivale a 10px en conjunto con el valor escrito en el font size-html*/
     font-family: 'Krub', sans-serif;
 }
 
-.title {
-    text-align: center;
+h1 {
     font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,h2,h3 {
+    text-align: center;
 }
 
 .title span {
@@ -33,12 +52,33 @@ body {
     margin: 0 auto 0 auto;
 }
 
+.button {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    border-radius: .5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    width: auto;
+}
+
+@media (max-width: 768px){
+    .button {
+        width: 90%;
+        text-align: center;
+    }
+}
+
 .nav-main {
     display: flex;
     justify-content: space-between;
 }
 
-@media ( max-width: 480px){
+/* Media query (Responsive) para celulares */
+@media (max-width: 480px){
     .nav-main {
         flex-direction: column;
         align-items: center;
@@ -61,9 +101,42 @@ body {
 
 .hero {
     background-image: url(../img/hero.jpg);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; /* no deja que la imagen se repita a lo ancho de la pagina */
     background-size: cover;
+    height: 450px;
+    position: relative;
 }
 
 .contenido-hero {
+    background-color: rgba(0, 0, 0, 0.7); /* El ultimo digito es el nivel de transparencia del color elegido */
+    position: absolute;
+    /* top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0; */
+    width: 100%;
+    height: 100%;
+    color: var(--blanco);
+    
+    /* este codigo alinea el contenido del contenido-hero tanto vertical como horizontalmente */
+    display: flex; /* aplica display flex ya que seva a modificar y centrar el contenido h2 svg y p */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.contenido__hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.ubicacion {
+    display: flex;
+    align-items: flex-end;
+    
+}
+
+.ubicacion p {
+    margin: 0;
+}
+
