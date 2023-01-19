@@ -1,26 +1,34 @@
 /* Se crean Variables */
 :root {
-    --blanco : #ffffff;
-    --oscuro : #212121;
-    --primario : #ffc107;
-    --secundario : #0097a7;
-    --gris : #757575;
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisclaro: #dfe9f3;
 }
 
 
 html {
-    font-size: 62.5%; /*con este valor se garantiza que 1rem equivale a 10px en conjunto con el valor escrito en el font size-body*/
-    box-sizing: border-box; /* garantiza que el tamaño del elemento no se ve afectado si le hacemos despues un padding */
+    font-size: 62.5%;
+    /*con este valor se garantiza que 1rem equivale a 10px en conjunto con el valor escrito en el font size-body*/
+    box-sizing: border-box;
+    /* garantiza que el tamaño del elemento no se ve afectado si le hacemos despues un padding */
 }
+
 /* garantiza que el tamaño del elemento no se ve afectado si le hacemos despues un padding */
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
 /* Los rem se adaptan mejor a los navegadores */
 body {
-    font-size: 16px; /*con este valor se garantiza que 1rem equivale a 10px en conjunto con el valor escrito en el font size-html*/
+    font-size: 16px;
+    /*con este valor se garantiza que 1rem equivale a 10px en conjunto con el valor escrito en el font size-html*/
     font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisclaro) 0%, var(--blanco) 100%);
 }
 
 h1 {
@@ -35,13 +43,17 @@ h3 {
     font-size: 1.8rem;
 }
 
-h1,h2,h3 {
+h1,
+h2,
+h3 {
     text-align: center;
 }
 
 .title span {
     font-size: 2rem;
 }
+
+
 
 .nav-background {
     background-color: var(--secundario);
@@ -65,7 +77,7 @@ h1,h2,h3 {
     width: auto;
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .button {
         width: 90%;
         text-align: center;
@@ -78,37 +90,40 @@ h1,h2,h3 {
 }
 
 /* Media query (Responsive) para celulares */
-@media (max-width: 480px){
+@media (max-width: 480px) {
     .nav-main {
         flex-direction: column;
         align-items: center;
     }
 }
 
-.nav-main a{
+.nav-main a {
     padding: 1rem;
     color: var(--blanco);
     text-decoration: none;
     font-size: 2rem;
     font-weight: 700;
-    
+
 }
 
-.nav-main a:hover{
+.nav-main a:hover {
     background-color: var(--primario);
     color: var(--oscuro);
 }
 
 .hero {
     background-image: url(../img/hero.jpg);
-    background-repeat: no-repeat; /* no deja que la imagen se repita a lo ancho de la pagina */
+    background-repeat: no-repeat;
+    /* no deja que la imagen se repita a lo ancho de la pagina */
     background-size: cover;
     height: 450px;
     position: relative;
+    margin-bottom: 2rem;
 }
 
 .contenido-hero {
-    background-color: rgba(0, 0, 0, 0.7); /* El ultimo digito es el nivel de transparencia del color elegido */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* El ultimo digito es el nivel de transparencia del color elegido */
     position: absolute;
     /* top: 0;
     bottom: 0;
@@ -117,9 +132,10 @@ h1,h2,h3 {
     width: 100%;
     height: 100%;
     color: var(--blanco);
-    
+
     /* este codigo alinea el contenido del contenido-hero tanto vertical como horizontalmente */
-    display: flex; /* aplica display flex ya que seva a modificar y centrar el contenido h2 svg y p */
+    display: flex;
+    /* aplica display flex ya que seva a modificar y centrar el contenido h2 svg y p */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -130,13 +146,108 @@ h1,h2,h3 {
     color: var(--blanco);
 }
 
+
 .ubicacion {
     display: flex;
     align-items: flex-end;
-    
+
 }
 
 .ubicacion p {
     margin: 0;
 }
 
+
+
+.boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* una fraccion de el estacio es lo mismo que 33.3% 33.3% 33.3% */
+    column-gap: 1rem; /* espacio entre columnas */
+}
+
+@media (max-width: 768px){
+    .boxes {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+.shadow-main {
+    /* generado por cssmatic */
+    -webkit-box-shadow: 9px 4px 15px 0px rgba(112, 112, 112, 0.54);
+    -moz-box-shadow: 9px 4px 15px 0px rgba(112, 112, 112, 0.54);
+    box-shadow: 9px 4px 15px 0px rgba(112, 112, 112, 0.54);
+    border-radius: 1rem;
+    background-color: var(--blanco);
+    padding: 2rem;
+}
+
+/* servicios */
+.service h3 {
+    color: var(--secundario);
+    font-weight: 400;
+}
+
+.service .format-icon {
+    background-color: var(--primario);
+    border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+} 
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service p {
+    line-height: 2; /* distancia entre lineas de texto */
+    text-align: center;
+}
+
+/* Formulario */
+
+.form {
+    background-color: var(--gris);
+    width: min(60rem, 100%); /* Utiliza el valor mas pequeño */
+    border-radius: 1rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.form legend {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--primario);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.form fieldset {
+    border: none;
+}
+
+.field {
+    margin-bottom: 1rem;
+}
+
+.data {
+    display: flex;
+    justify-content: space-between;
+}
+
+.field label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.field input[type=email]{
+    background-color: red;
+}
